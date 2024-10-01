@@ -19,7 +19,22 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/cajaNombre"
+                android:id="@+id/cajaBuscarModi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Buscar por correo"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/botonVer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="BuscarUsuario"
+                android:text="Buscar" />
+
+            <EditText
+                android:id="@+id/cajaNombreModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -27,7 +42,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/cajaApellido"
+                android:id="@+id/cajaApellidoModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -35,7 +50,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/cajaDocumento"
+                android:id="@+id/cajaDocumentoModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -43,7 +58,7 @@
                 android:inputType="number" />
 
             <EditText
-                android:id="@+id/cajaEdad"
+                android:id="@+id/cajaEdadModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -51,7 +66,7 @@
                 android:inputType="number" />
 
             <EditText
-                android:id="@+id/cajaTelefono"
+                android:id="@+id/cajaTelefonoModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -59,7 +74,7 @@
                 android:inputType="number" />
 
             <EditText
-                android:id="@+id/cajaDireccion"
+                android:id="@+id/cajaDireccionModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -67,7 +82,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/cajaNacimiento"
+                android:id="@+id/cajaNacimientoModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -75,7 +90,7 @@
                 android:inputType="date" />
 
             <EditText
-                android:id="@+id/cajaEmail"
+                android:id="@+id/cajaEmailModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -83,52 +98,53 @@
                 android:inputType="textEmailAddress" />
 
             <TextView
-                android:id="@+id/labelEstado"
+                android:id="@+id/labelEstadoModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Estado civil" />
 
             <RadioGroup
-                android:id="@+id/radioGroupEstado"
+                android:id="@+id/radioGroupEstadoModi"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/cajaSoltero"
+                    android:id="@+id/cajaSolteroModi"
                     android:layout_width="193dp"
                     android:layout_height="match_parent"
                     android:text="Soltero" />
 
                 <RadioButton
-                    android:id="@+id/cajaCasado"
-                    android:layout_width="216dp"
-                    android:layout_height="30dp"
+                    android:id="@+id/cajaCasadoModi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Casado" />
 
             </RadioGroup>
 
             <TextView
-                android:id="@+id/labelGenero"
+                android:id="@+id/labelGeneroModi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Genero" />
 
             <RadioGroup
-                android:id="@+id/radioGroupGenero"
+                android:id="@+id/radioGroupGeneroModi"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/cajaMasculino"
+                    android:id="@+id/cajaMasculinoModi"
                     android:layout_width="193dp"
                     android:layout_height="match_parent"
                     android:text="Masculino" />
 
                 <RadioButton
-                    android:id="@+id/cajaFemenino"
+                    android:id="@+id/cajaFemeninoModi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -137,7 +153,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/labelGustos"
+                android:id="@+id/labelGustosModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Gustos" />
@@ -149,21 +165,21 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/checkMusica"
+                    android:id="@+id/checkMusicaModi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Musica" />
 
                 <CheckBox
-                    android:id="@+id/checkDeporte"
+                    android:id="@+id/checkDeporteModi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Deporte" />
 
                 <CheckBox
-                    android:id="@+id/checkCine"
+                    android:id="@+id/checkCineModi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -177,21 +193,21 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/checkViajes"
+                    android:id="@+id/checkViajesModi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Viajes" />
 
                 <CheckBox
-                    android:id="@+id/checkComida"
+                    android:id="@+id/checkComidaModi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Comida" />
 
                 <CheckBox
-                    android:id="@+id/checkLibros"
+                    android:id="@+id/checkLibrosModi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -205,14 +221,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/labelSpinner"
+                    android:id="@+id/labelSpinnerModi"
                     android:layout_width="254dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Equipo de futbol favorito" />
 
                 <Spinner
-                    android:id="@+id/spinner"
+                    android:id="@+id/spinnerModi"
                     android:layout_width="241dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
@@ -220,7 +236,7 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/cajaPelicula"
+                android:id="@+id/cajaPeliculaModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -228,7 +244,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/cajaColor"
+                android:id="@+id/cajaColorModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -236,7 +252,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/cajaComida"
+                android:id="@+id/cajaComidaModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -244,7 +260,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/cajaLibro"
+                android:id="@+id/cajaLibroModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -252,7 +268,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/cajaCancion"
+                android:id="@+id/cajaCancionModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -260,7 +276,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/cajaDescripcion"
+                android:id="@+id/cajaDescripcionModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -268,32 +284,18 @@
                 android:inputType="text" />
 
             <Button
-                android:id="@+id/botonGuardar"
+                android:id="@+id/botonModificarModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="guardar"
-                android:text="Guardar" />
+                android:onClick="modificarUsuario"
+                android:text="Modificar usuario" />
 
             <Button
-                android:id="@+id/botonVer"
+                android:id="@+id/botonVolverModi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="ver"
-                android:text="Buscar" />
-
-            <Button
-                android:id="@+id/botonModificar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="modificar"
-                android:text="Modificar" />
-
-            <Button
-                android:id="@+id/botonCalculadora"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="calculadora"
-                android:text="Calculadora" />
+                android:onClick="volver"
+                android:text="Volver" />
 
         </LinearLayout>
     </ScrollView>
