@@ -91,7 +91,8 @@ public class MainActivity3 extends AppCompatActivity {
 
     public void BuscarUsuario(View view) {
         String emailBuscado = cajaBuscarModi.getText().toString();
-        Usuario usuarioEncontrado = buscarUsuarioPorEmail(emailBuscado);
+        ArrayList<Usuario> listaUsuarios = PersistenciaUsuarios.leerUsuarios(this);
+        Usuario usuarioEncontrado = buscarUsuarioPorEmail(emailBuscado, listaUsuarios);
 
         if (usuarioEncontrado != null) {
             cajaNombreModi.setText(usuarioEncontrado.getNombre());
@@ -146,7 +147,7 @@ public class MainActivity3 extends AppCompatActivity {
         }
     }
 
-    private Usuario buscarUsuarioPorEmail(String email) {
+    private Usuario buscarUsuarioPorEmail(String email, ArrayList<Usuario> listaUsuarios) {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getEmail().equals(email)) {
                 return usuario;
@@ -192,9 +193,11 @@ public class MainActivity3 extends AppCompatActivity {
             estado = selectedEstado.getText().toString();
         }
 
+        // Leer los usuarios desde el archivo
+        ArrayList<Usuario> listaUsuarios = PersistenciaUsuarios.leerUsuarios(this);
 
         boolean usuarioModificado = false;
-        if(validarCampos()) {
+        if (validarCampos()) {
             for (int i = 0; i < listaUsuarios.size(); i++) {
                 Usuario usuario = listaUsuarios.get(i);
                 // Comparar con el email buscado
@@ -202,6 +205,7 @@ public class MainActivity3 extends AppCompatActivity {
                     // Actualizar los datos del usuario existente
                     usuario.setNombre(nombre);
                     usuario.setApellido(apellido);
+                    usuario.setDocumento(documento);
                     usuario.setEdad(edad);
                     usuario.setTelefono(telefono);
                     usuario.setDireccion(direccion);
@@ -234,9 +238,14 @@ public class MainActivity3 extends AppCompatActivity {
         }
 
         if (usuarioModificado) {
+            // Guardar la lista actualizada en el archivo
+            PersistenciaUsuarios.guardarUsuarios( listaUsuarios,this);
             Toast.makeText(this, "Usuario modificado correctamente", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "Usuario no encontrado", Toast.LENGTH_LONG).show();
         }
     }
+
 
     private void limpiarCampos() {
         cajaNombreModi.setText("");

@@ -109,9 +109,14 @@ public class MainActivity extends AppCompatActivity {
         String cancion = cajaCancion.getText().toString();
         String descripcion = cajaDescripcion.getText().toString();
 
+
         Usuario usuario = new Usuario(nombre, apellido, documento, edad, telefono, direccion, nacimiento, email, estado, genero, cine, musica, deporte, boxComida, viajes, libros, equipo, pelicula, color, comida, libro, cancion, descripcion);
+
+        ArrayList<Usuario> listaUsuarios = PersistenciaUsuarios.leerUsuarios(this);
+
         listaUsuarios.add(usuario);
 
+        PersistenciaUsuarios.guardarUsuarios(listaUsuarios, this);
         Toast.makeText(this, "Usuario guardado", Toast.LENGTH_LONG).show();
         limpiarCampos();
     }

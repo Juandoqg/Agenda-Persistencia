@@ -87,7 +87,8 @@ public class MainActivity2 extends AppCompatActivity {
 
     public void Buscar(View view) {
         String emailBuscado = cajaBuscar.getText().toString();
-        Usuario usuarioEncontrado = buscarUsuarioPorEmail(emailBuscado);
+        ArrayList<Usuario> listaUsuarios = PersistenciaUsuarios.leerUsuarios(this);
+        Usuario usuarioEncontrado = buscarUsuarioPorEmail(emailBuscado,listaUsuarios);
 
         if (usuarioEncontrado != null) {
             cajaNombreVer.setText(usuarioEncontrado.getNombre());
@@ -142,7 +143,7 @@ public class MainActivity2 extends AppCompatActivity {
         }
     }
 
-    private Usuario buscarUsuarioPorEmail(String email) {
+    private Usuario buscarUsuarioPorEmail(String email, ArrayList<Usuario> listaUsuarios) {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getEmail().equals(email)) {
                 return usuario;
