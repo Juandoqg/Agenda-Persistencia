@@ -8,7 +8,7 @@ public class PersistenciaUsuarios {
 
     private static final String NOMBRE_ARCHIVO = "usuarios.txt";
 
-    // Método para guardar la lista de usuarios en un archivo
+
     public static void guardarUsuarios(ArrayList<Usuario> listaUsuarios, Context context) {
         try {
             FileOutputStream fos = context.openFileOutput(NOMBRE_ARCHIVO, Context.MODE_PRIVATE);
@@ -21,7 +21,7 @@ public class PersistenciaUsuarios {
         }
     }
 
-    // Método para leer la lista de usuarios desde un archivo
+
     public static ArrayList<Usuario> leerUsuarios(Context context) {
         ArrayList<Usuario> listaUsuarios = new ArrayList<>();
         try {
@@ -31,7 +31,6 @@ public class PersistenciaUsuarios {
             ois.close();
             fis.close();
         } catch (FileNotFoundException e) {
-            // Si no existe el archivo, devolver lista vacía
             listaUsuarios = new ArrayList<>();
         } catch (Exception e) {
             e.printStackTrace();

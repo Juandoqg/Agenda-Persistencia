@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             RadioButton selectedGenero = findViewById(selectedId);
             return selectedGenero.getText().toString();
         }
-        return ""; // O puedes lanzar un error si es necesario
+        return "";
     }
 
     private String obtenerEstadoSeleccionado() {
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
             RadioButton selectedEstado = findViewById(selectedId);
             return selectedEstado.getText().toString();
         }
-        return ""; // O puedes lanzar un error si es necesario
+        return "";
     }
 
     private void limpiarCampos() {
@@ -243,12 +243,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void ver(View view) {
         Intent intent = new Intent(this, MainActivity2.class);
-        intent.putExtra("listaUsuarios", listaUsuarios);  // Enviar la lista de usuarios
+        intent.putExtra("listaUsuarios", listaUsuarios);
         startActivity(intent);
     }
     public void modificar(View view){
         Intent intent2 = new Intent(this, MainActivity3.class);
-        intent2.putExtra("listaUsuarios", listaUsuarios);  // Enviar la lista de usuarios
+        intent2.putExtra("listaUsuarios", listaUsuarios);
         startActivityForResult(intent2, REQUEST_CODE_MODIFICAR);
     }
 
@@ -264,9 +264,9 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_MODIFICAR && resultCode == RESULT_OK) {
             if (data != null) {
-                // Recibir el ArrayList de usuarios modificado
+
                 listaUsuarios = (ArrayList<Usuario>) data.getSerializableExtra("listaUsuarios");
-                // Aquí puedes actualizar la UI o hacer lo que necesites con la lista actualizada
+
             }
         }
     }

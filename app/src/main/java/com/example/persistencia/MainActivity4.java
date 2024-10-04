@@ -1,16 +1,11 @@
 package com.example.persistencia;
 
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 
 public class MainActivity4 extends AppCompatActivity {
     private TextView resultTextView;
@@ -35,7 +30,7 @@ public class MainActivity4 extends AppCompatActivity {
                 R.id.button0, R.id.button1, R.id.button2, R.id.button3, R.id.button4,
                 R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9,
                 R.id.buttonDot, R.id.buttonPlus, R.id.buttonMinus, R.id.buttonMultiply,
-                R.id.buttonDivide, R.id.buttonClear, R.id.buttonEquals
+                R.id.buttonDivide, R.id.buttonClear, R.id.buttonEquals, R.id.botonVolverUno
         };
 
         for (int id : buttonIds) {
@@ -52,6 +47,9 @@ public class MainActivity4 extends AppCompatActivity {
             case "C":
                 clear();
                 break;
+            case "CE":
+                handleBackspace();
+                break;
             case "=":
                 calculateResult();
                 break;
@@ -64,6 +62,22 @@ public class MainActivity4 extends AppCompatActivity {
             default:
                 appendInput(buttonText);
                 break;
+        }
+    }
+
+    private void handleBackspace() {
+        String currentText = resultTextView.getText().toString();
+        if (!currentText.isEmpty()) {
+
+            currentText = currentText.substring(0, currentText.length() - 1);
+            resultTextView.setText(currentText);
+
+            input = currentText;
+
+            if (input.isEmpty()) {
+                input = "";
+                resultTextView.setText("0");
+            }
         }
     }
 

@@ -128,9 +128,9 @@ public class MainActivity3 extends AppCompatActivity {
             String equipo = usuarioEncontrado.getEquipo();
             int position = adapter.getPosition(equipo);
             if (position >= 0) {
-                spinnerModi.setSelection(position);  // Setear la selección en la posición encontrada
+                spinnerModi.setSelection(position);
             } else {
-                // Si el equipo no está en la lista, puedes manejarlo aquí (opcional)
+
                 Toast.makeText(this,"Equipo no encontrado", Toast.LENGTH_SHORT).show();
             }
 
@@ -200,9 +200,9 @@ public class MainActivity3 extends AppCompatActivity {
         if (validarCampos()) {
             for (int i = 0; i < listaUsuarios.size(); i++) {
                 Usuario usuario = listaUsuarios.get(i);
-                // Comparar con el email buscado
+
                 if (usuario.getEmail().equals(cajaBuscarModi.getText().toString())) {
-                    // Actualizar los datos del usuario existente
+
                     usuario.setNombre(nombre);
                     usuario.setApellido(apellido);
                     usuario.setDocumento(documento);
@@ -227,18 +227,17 @@ public class MainActivity3 extends AppCompatActivity {
                     usuario.setCancion(cancion);
                     usuario.setDescripcion(descripcion);
 
-                    // Actualizar la lista con el usuario modificado
                     listaUsuarios.set(i, usuario);
 
                     usuarioModificado = true;
                     limpiarCampos();
-                    break; // Detener la búsqueda una vez que se encontró el usuario
+                    break;
                 }
             }
         }
 
         if (usuarioModificado) {
-            // Guardar la lista actualizada en el archivo
+
             PersistenciaUsuarios.guardarUsuarios( listaUsuarios,this);
             Toast.makeText(this, "Usuario modificado correctamente", Toast.LENGTH_LONG).show();
         } else {

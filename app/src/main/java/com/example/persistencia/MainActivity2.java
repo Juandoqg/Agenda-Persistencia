@@ -124,7 +124,7 @@ public class MainActivity2 extends AppCompatActivity {
             String equipo = usuarioEncontrado.getEquipo();
             int position = adapter.getPosition(equipo);
             if (position >= 0) {
-                spinnerVer.setSelection(position);  // Setear la selección en la posición encontrada
+                spinnerVer.setSelection(position);
             } else {
                 // Si el equipo no está en la lista, puedes manejarlo aquí (opcional)
                 Toast.makeText(this,"Equipo no encontrado", Toast.LENGTH_SHORT).show();
